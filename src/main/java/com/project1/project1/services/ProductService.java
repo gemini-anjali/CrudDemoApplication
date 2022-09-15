@@ -11,8 +11,9 @@ public interface ProductService {
 
     Products GetProductById(Integer id);
 
-    public Products DeleteProduct(Integer id);
+    Products updateProduct(Integer id, Products products);
 
+    public Products DeleteProduct(Integer id);
 
 
 

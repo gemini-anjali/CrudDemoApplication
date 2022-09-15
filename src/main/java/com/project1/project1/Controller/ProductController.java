@@ -53,7 +53,21 @@ public class ProductController {
 
         }
     }
+    @PutMapping("updateproduct{ProductId}")
+    @Operation(summary = "update product")
+    public ResponseEntity<?> updateProduct(@PathVariable("") Integer ProductId, @RequestBody Products product) {
+        try{
+            log.info("Update product");
+            productService.updateProduct(ProductId,product );
+            return new ResponseEntity<>(productService.GetProductById(ProductId), HttpStatus.OK);
+        }
+        catch (BusinessException e) {
+            log.error("No product Id found");
+            ControllerException ce = new ControllerException(e.getErrorcode(),e.getErrormessage());
+            return new ResponseEntity<ControllerException>(ce,HttpStatus.NOT_FOUND);
 
+        }
+    }
 
     @DeleteMapping("deleteproduct{id}")
     @Operation(summary = "delete product")

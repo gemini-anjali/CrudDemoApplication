@@ -40,6 +40,15 @@ public class ProductServicesImpl implements ProductService {
         }
 
     }
+    @Override
+    public Products updateProduct(Integer id, Products products) {
+
+        Products updatedProduct = productsRepository.findById(id).get();
+        updatedProduct.setProductName(products.getProductName());
+        updatedProduct.setProductDescription(products.getProductDescription());
+        updatedProduct.setPrice(products.getPrice());
+        return productsRepository.save(updatedProduct);
+    }
 
     @Override
     public Products DeleteProduct(Integer productid) {

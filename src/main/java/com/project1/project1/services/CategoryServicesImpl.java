@@ -37,8 +37,7 @@ public class CategoryServicesImpl implements CategoryService {
             Category updateCategory = categoryrepository.findById(id).get();
             updateCategory.setCategoryName(category.getCategoryName());
             updateCategory.setCategoryDescription(category.getCategoryDescription());
-            updateCategory.setProducts(category.getProducts());
-            return updateCategory;
+            return categoryrepository.save(updateCategory);
         }
         catch (Exception e){
             throw new BusinessException("603", "something went wrong"+e.getMessage());
