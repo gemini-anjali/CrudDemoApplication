@@ -55,7 +55,7 @@ public class ProductController {
     }
     @PutMapping("updateproduct{ProductId}")
     @Operation(summary = "update product")
-    public ResponseEntity<?> updateProduct(@PathVariable("") Integer ProductId, @RequestBody Products product) {
+    public ResponseEntity<?> updateProduct(@PathVariable("ProductId") Integer ProductId, @RequestBody Products product) {
         try{
             log.info("Update product");
             productService.updateProduct(ProductId,product );

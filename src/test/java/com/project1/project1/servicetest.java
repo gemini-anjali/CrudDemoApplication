@@ -90,6 +90,7 @@ public class servicetest {
       assertThat(category.getCategoryName()).isNotNull();
 
   }
+
     @Test
     public void test_DeleteCategory(){
         List <Category> mycategory= new ArrayList<Category>();
