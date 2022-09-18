@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public interface ProductsRepository extends JpaRepository <Products,Integer> {
+
+    //FOR PERFORMING SOFT DELETE
     @Modifying
     @Transactional
     @Query(value = "update products set Deleted = true,Active = false where product_id = :productid",nativeQuery = true)

@@ -1,7 +1,4 @@
 package com.project1.project1.Controller;
-
-
-import com.project1.project1.entity.Category;
 import com.project1.project1.entity.Products;
 import com.project1.project1.exception.BusinessException;
 import com.project1.project1.exception.ControllerException;
@@ -14,15 +11,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.NoSuchElementException;
+
 
 @Slf4j
 @RestController
-//@RequestMapping("/apii")
+
 public class ProductController {
     @Autowired
     private ProductService productService;
 
+    // GET ALL THE PRODUCTS
     @GetMapping("getallproduct")
     @Operation(summary = "get all product details")
     public ResponseEntity<List<Products>> GetProductList() {
@@ -38,6 +36,8 @@ public class ProductController {
         }
 
     }
+
+    // GET PRODUCT BY ID
     @GetMapping("getbyproduct{id}")
     @Operation(summary = "get by product Id")
     public ResponseEntity<?> GetProductById(@PathVariable Integer id) {
@@ -53,6 +53,8 @@ public class ProductController {
 
         }
     }
+
+    //GET UPDATE BY ID
     @PutMapping("updateproduct{ProductId}")
     @Operation(summary = "update product")
     public ResponseEntity<?> updateProduct(@PathVariable("ProductId") Integer ProductId, @RequestBody Products product) {
@@ -69,6 +71,7 @@ public class ProductController {
         }
     }
 
+    //DELETE PRODUCT BY ID
     @DeleteMapping("deleteproduct{id}")
     @Operation(summary = "delete product")
     public ResponseEntity<?> DeleteProduct(@PathVariable("id") Integer id) {

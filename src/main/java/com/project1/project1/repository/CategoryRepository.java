@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface CategoryRepository extends JpaRepository<Category,Integer> {
 
+    // FOR PERFORMING SOFT DELETE
     @Modifying
     @Transactional
     @Query(value = "update category set Deleted = true,Active = false where category_id = :categoryid",nativeQuery = true)

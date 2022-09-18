@@ -1,5 +1,4 @@
 package com.project1.project1.Controller;
-
 import com.project1.project1.entity.Category;
 import com.project1.project1.exception.BusinessException;
 import com.project1.project1.exception.ControllerException;
@@ -22,6 +21,8 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryservices;
 
+    // GETTING ALL THE RECORDS
+
     @GetMapping("getallcategory")
     @Operation(summary = "getting all the category")
     public ResponseEntity<List<Category>> GetCategoryList() {
@@ -36,6 +37,8 @@ public class CategoryController {
         }
 
     }
+
+    // CREATING ALL THE RECORDS
     @PostMapping("create")
     @Operation(summary = "creating the data")
     public ResponseEntity<Category> addCategory(@RequestBody Category category) {
@@ -50,6 +53,8 @@ public class CategoryController {
 
         }
     }
+
+    // GET CATEGORY BY ID
     @GetMapping("getbycategory{id}")
     @Operation(summary = "getting the data by id")
     public ResponseEntity<?> GetCategoryById(@PathVariable Integer id)  {
@@ -64,6 +69,8 @@ public class CategoryController {
 
         }
     }
+
+    // UPDATE CATEGORY BY ID
     @PutMapping("updatecategory{CategoryId}")
     @Operation(summary = "update category")
     public ResponseEntity<?> updateCategory(@PathVariable("CategoryId") Integer CategoryId, @RequestBody Category category) {
@@ -80,6 +87,7 @@ public class CategoryController {
         }
     }
 
+    // DELETE CATEGORY BY ID
     @DeleteMapping("deletecategory{id}")
     public ResponseEntity<?> DeleteCategory(@PathVariable("id") Integer id) {
         try {

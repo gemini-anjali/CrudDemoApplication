@@ -3,6 +3,8 @@ package com.project1.project1.exception;
 public class BusinessException  extends RuntimeException{
 
     private static final long serialVersionUID = 1L;
+    private String errorcode;
+    private String errormessage;
 
     public String getErrorcode() {
         return errorcode;
@@ -28,6 +30,5 @@ public class BusinessException  extends RuntimeException{
     {
 
     }
-    private String errorcode;
-    private String errormessage;
+
 }

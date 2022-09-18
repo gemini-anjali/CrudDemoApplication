@@ -13,6 +13,8 @@ import java.util.List;
 public class ProductServicesImpl implements ProductService {
     @Autowired
     ProductsRepository productsRepository;
+
+    //GET REQUEST
     @Override
     public List<Products> GetProductList() {
         try {
@@ -27,6 +29,7 @@ public class ProductServicesImpl implements ProductService {
         }
     }
 
+    //GET PRODUCT BY ID
     @Override
     public Products GetProductById(Integer productid) {
         try {
@@ -40,6 +43,8 @@ public class ProductServicesImpl implements ProductService {
         }
 
     }
+
+    //FOR PUT REQUEST
     @Override
     public Products updateProduct(Integer id, Products products) {
 
@@ -50,6 +55,7 @@ public class ProductServicesImpl implements ProductService {
         return productsRepository.save(updatedProduct);
     }
 
+    //FOR DELETE REQUEST
     @Override
     public Products DeleteProduct(Integer productid) {
         try {

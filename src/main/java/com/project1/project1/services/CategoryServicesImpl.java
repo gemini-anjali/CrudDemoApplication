@@ -13,6 +13,8 @@ import java.util.List;
 public class CategoryServicesImpl implements CategoryService {
     @Autowired
     CategoryRepository categoryrepository;
+
+    // FOR GET REQUEST
     @Override
     public List<Category> GetCategoryList() {
         try {
@@ -27,6 +29,7 @@ public class CategoryServicesImpl implements CategoryService {
         }
     }
 
+    //FOR PUT REQUEST
 
     @Override
     public Category updateCategory(Integer id, Category category) {
@@ -43,6 +46,8 @@ public class CategoryServicesImpl implements CategoryService {
             throw new BusinessException("603", "something went wrong"+e.getMessage());
         }
     }
+
+    //FOR CREATE REQUEST
       @Override
     public Category addCategory(Category category)
     {
@@ -56,6 +61,8 @@ public class CategoryServicesImpl implements CategoryService {
             throw new BusinessException("603", "something went wrong"+e.getMessage());
         }
     }
+
+    //GET CATEGORY BY ID
     @Override
     public Category GetCategoryById(Integer categoryid) {
         try {
@@ -69,6 +76,8 @@ public class CategoryServicesImpl implements CategoryService {
         }
 
     }
+
+    // DELETE CATEGORY
     @Override
     public Category DeleteCategory(Integer categoryid) {
         try {
