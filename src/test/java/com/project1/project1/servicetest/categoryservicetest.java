@@ -1,7 +1,6 @@
-package com.project1.project1;//package com.project1.project1;
+package com.project1.project1.servicetest;//package com.project1.project1;
 
 import com.project1.project1.entity.Category;
-import com.project1.project1.entity.Products;
 import com.project1.project1.repository.CategoryRepository;
 import com.project1.project1.repository.ProductsRepository;
 import com.project1.project1.services.CategoryServicesImpl;
